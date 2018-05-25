@@ -5,11 +5,15 @@ Window {
     visible: true
     color: "grey"
 
+    property int size: 50
+    property int margin: 10
+
     Rectangle {
-        width: 300
-        height: 200
+        width: size * 6
+        height: size * 4
         color: "white"
 
-        MyButton { width: 50; height: 50; color: "blue" }
+        MyButton { width: size; height: size; color: "blue" }
+        MySquareButton { side: size; x: size + margin; }
     }
 }
