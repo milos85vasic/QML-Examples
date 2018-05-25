@@ -1,5 +1,5 @@
 import QtQuick 2.9
-import QtQuick.Window 2.2
+import QtQuick.Window 2.9
 
 Window {
     visible: true
@@ -9,5 +9,7 @@ Window {
         width: 300
         height: 200
         color: "white"
+
+        MyButton { width: 50; height: 50 }
     }
 }
