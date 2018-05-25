@@ -14,6 +14,13 @@ Window {
         color: "white"
 
         MyButton { width: size; height: size; color: "blue" }
-        MySquareButton { side: size; x: size + margin; }
+        MySquareButton {
+            side: size;
+            x: size + margin;
+
+            onButtonClicked: {
+                console.log("Button clicked at: " + xPos)
+            }
+        }
     }
 }
