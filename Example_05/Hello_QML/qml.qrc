@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>myButton.qml</file>
+        <file>MyButton.qml</file>
     </qresource>
 </RCC>

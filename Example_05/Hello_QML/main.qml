@@ -10,6 +10,6 @@ Window {
         height: 200
         color: "white"
 
-        MyButton { width: 50; height: 50 }
+        MyButton { width: 50; height: 50; color: "blue" }
     }
 }
