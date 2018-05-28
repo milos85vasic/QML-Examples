@@ -3,18 +3,18 @@ import QtQuick.Window 2.0
 
 Item {
     id: root
-    property int height: 100
+    property int childHeight: 100
 
     Rectangle {
         width: Screen.width
-        height: root.height
+        height: root.childHeight
         color: "red"
     }
 
     Rectangle {
         width: Screen.width
-        height: root.height
+        height: root.childHeight
         color: "blue"
-        y: height
+        y: childHeight
     }
 }
