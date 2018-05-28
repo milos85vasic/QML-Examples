@@ -4,7 +4,7 @@ import QtQuick.Window 2.0
 Item {
     id: root
     property int childHeight: 100
-    signal childHeightChange
+    signal childHeightChange(int newHeight)
 
     Rectangle {
         width: Screen.width
@@ -18,4 +18,6 @@ Item {
         color: "blue"
         y: childHeight
     }
+
+    onChildHeightChanged: root.childHeightChange(root.childHeight)
 }

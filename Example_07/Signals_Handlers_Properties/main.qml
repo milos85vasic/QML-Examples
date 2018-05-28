@@ -7,8 +7,13 @@ Window {
     title: qsTr("We rule!")
 
     TestComponent {
+        id: test1
         onChildHeightChange: {
-            console.log("Child height changed.")
+            console.log("Child height changed: " + newHeight)
         }
+    }
+
+    Component.onCompleted: {
+        test1.childHeight = 200
     }
 }
