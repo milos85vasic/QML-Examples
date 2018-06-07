@@ -15,8 +15,9 @@ Window {
 
         TextEdit {
             property int selectionHandleSpacing: 5
-            property int selectionHandleWidth: 10
-            property int selectionHandleHeight: 40
+            property int selectionHandleWidth: 15
+            property int selectionHandleHeight: 30
+            property string selectionHandleResource: "resources/handle_right.png"
 
             id: root
             height: 40
@@ -34,12 +35,12 @@ Window {
                 height: root.font.pixelSize + root.selectionHandleSpacing + root.selectionHandleHeight + root.selectionHandleSpacing
                 color: "transparent"
 
-                Rectangle {
+                Image {
                     x: 0
                     y: root.font.pixelSize + root.selectionHandleSpacing
                     height: root.selectionHandleHeight
                     width: parent.width
-                    color: "red"
+                    source: root.selectionHandleResource
                 }
             }
 
