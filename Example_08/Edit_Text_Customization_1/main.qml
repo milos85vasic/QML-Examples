@@ -1,11 +1,12 @@
 import QtQuick 2.9
 import QtQuick.Window 2.2
+import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
 
 Window {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
 
     Column {
         x: 25
@@ -13,52 +14,50 @@ Window {
         width: parent.width
         height: parent.width
 
-        TextEdit {
+        Item {
+            property int padding: 5
             property int selectionHandleSpacing: 5
             property int selectionHandleWidth: 15
             property int selectionHandleHeight: 30
-            property string selectionHandleResource: "resources/handle_right.png"
+            property string selectionBackgroundColor: "#8e8e8e"
+            property string selectionHandleResource: "resources/handle_middle.png"
 
             id: root
-            height: 40
+
+            height: textField.height + positionHandle.height
             width: parent.width
-            selectByMouse: false
 
-            Text {
-                id: placeholder
-                text: "Placeholder text"
-                color: "#aaa"
+            TextField {
+                id: textField
+                width: parent.width
+                height: font.pixelSize + (padding * 2)
+                font.pointSize: 16
+                selectByMouse: false
+                placeholderText: "Placeholder text"
+
+                style: TextFieldStyle {
+                    selectionColor: root.selectionBackgroundColor
+                    background: Rectangle { color: "transparent" }
+                    passwordCharacter: "•"
+                }
             }
 
-            cursorDelegate: Rectangle {
+            Image {
+                id: positionHandle
+                x: 0
+                y: textField.font.pixelSize + root.selectionHandleSpacing
+                anchors.top: textField.bottom
                 width: root.selectionHandleWidth
-                height: root.font.pixelSize + root.selectionHandleSpacing + root.selectionHandleHeight + root.selectionHandleSpacing
-                color: "transparent"
-
-                Image {
-                    x: 0
-                    y: root.font.pixelSize + root.selectionHandleSpacing
-                    height: root.selectionHandleHeight
-                    width: parent.width
-                    source: root.selectionHandleResource
-                }
-            }
-
-            onTextChanged: {
-                placeholder.visible = false
-            }
-
-            onFocusChanged: {
-                if(!focus && !text){
-                    placeholder.visible = true
-                }
+                height: root.selectionHandleHeight
+                source: root.selectionHandleResource
+                z: 1000000000000
             }
         }
 
         TextEdit {
             id: changeFocus
             width: parent.width
-            height: customized.height
+            height: 40
             text: "Focus me."
         }
     }
