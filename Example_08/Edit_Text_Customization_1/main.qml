@@ -26,7 +26,7 @@ Window {
 
             id: root
 
-            height: textField.height + leftPositionHandle.height
+            height: textField.height // + leftPositionHandle.height
             width: parent.width
 
             TextField {
@@ -44,25 +44,25 @@ Window {
                 }
             }
 
-            Image {
-                id: leftPositionHandle
-                x: 0
-                y: textField.font.pixelSize + root.selectionHandleSpacing
-                anchors.top: textField.bottom
-                width: root.selectionHandleWidth
-                height: root.selectionHandleHeight
-                source: root.leftSelectionHandleResource
-            }
+//            Image {
+//                id: leftPositionHandle
+//                x: 0
+//                y: textField.font.pixelSize + root.selectionHandleSpacing
+//                anchors.top: textField.bottom
+//                width: root.selectionHandleWidth
+//                height: root.selectionHandleHeight
+//                source: root.leftSelectionHandleResource
+//            }
 
-            Image {
-                id: rightPositionHandle
-                x: 0
-                y: textField.font.pixelSize + root.selectionHandleSpacing
-                anchors.top: textField.bottom
-                width: root.selectionHandleWidth
-                height: root.selectionHandleHeight
-                source: root.rightSelectionHandleResource
-            }
+//            Image {
+//                id: rightPositionHandle
+//                x: 0
+//                y: textField.font.pixelSize + root.selectionHandleSpacing
+//                anchors.top: textField.bottom
+//                width: root.selectionHandleWidth
+//                height: root.selectionHandleHeight
+//                source: root.rightSelectionHandleResource
+//            }
         }
 
 //        TextEdit {
