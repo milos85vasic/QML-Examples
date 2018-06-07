@@ -26,13 +26,13 @@ Window {
 
             id: root
 
-            height: textField.height + positionHandle.height
+            height: textField.height + leftPositionHandle.height
             width: parent.width
 
             TextField {
                 id: textField
                 width: parent.width
-                height: font.pixelSize + (componentPadding * 2)
+                height: font.pixelSize + (root.componentPadding * 2)
                 font.pointSize: 16
                 selectByMouse: false
                 placeholderText: "Placeholder text"
@@ -41,10 +41,6 @@ Window {
                     selectionColor: root.selectionBackgroundColor
                     background: Rectangle { color: "transparent" }
                     passwordCharacter: "•"
-                }
-
-                onFocusChanged: {
-
                 }
             }
 
@@ -69,11 +65,11 @@ Window {
             }
         }
 
-        TextEdit {
-            id: changeFocus
-            width: parent.width
-            height: 40
-            text: "Focus me."
-        }
+//        TextEdit {
+//            id: changeFocus
+//            width: parent.width
+//            height: 40
+//            text: "Focus me."
+//        }
     }
 }
