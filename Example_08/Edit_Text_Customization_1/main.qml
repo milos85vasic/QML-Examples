@@ -15,12 +15,14 @@ Window {
         height: parent.width
 
         Item {
-            property int padding: 5
+            property int componentPadding: 5
             property int selectionHandleSpacing: 5
             property int selectionHandleWidth: 15
             property int selectionHandleHeight: 30
             property string selectionBackgroundColor: "#8e8e8e"
             property string selectionHandleResource: "resources/handle_middle.png"
+            property string leftSelectionHandleResource: "resources/handle_left.png"
+            property string rightSelectionHandleResource: "resources/handle_right.png"
 
             id: root
 
@@ -30,7 +32,7 @@ Window {
             TextField {
                 id: textField
                 width: parent.width
-                height: font.pixelSize + (padding * 2)
+                height: font.pixelSize + (componentPadding * 2)
                 font.pointSize: 16
                 selectByMouse: false
                 placeholderText: "Placeholder text"
@@ -40,17 +42,30 @@ Window {
                     background: Rectangle { color: "transparent" }
                     passwordCharacter: "•"
                 }
+
+                onFocusChanged: {
+
+                }
             }
 
             Image {
-                id: positionHandle
+                id: leftPositionHandle
                 x: 0
                 y: textField.font.pixelSize + root.selectionHandleSpacing
                 anchors.top: textField.bottom
                 width: root.selectionHandleWidth
                 height: root.selectionHandleHeight
-                source: root.selectionHandleResource
-                z: 1000000000000
+                source: root.leftSelectionHandleResource
+            }
+
+            Image {
+                id: rightPositionHandle
+                x: 0
+                y: textField.font.pixelSize + root.selectionHandleSpacing
+                anchors.top: textField.bottom
+                width: root.selectionHandleWidth
+                height: root.selectionHandleHeight
+                source: root.rightSelectionHandleResource
             }
         }
 
